@@ -198,6 +198,7 @@ function setShortestPathParents(arr, path, operations, sheet) {
 }
 
 function getEdits(X, Y, operations) {
+  //fill gaps in shorter word, otherwise do gaps
     return ["", ""];
 }
 
@@ -512,6 +513,6 @@ function test() {
 }
 
 function getLocalDictionary() {
-  let emptyDict = []; //Dictionary omittied to keep file size small
-  return emptyDict;
+    let emptyDict = []; //Dictionary omitted to allow file size to upload
+    return emptyDict;
 }
