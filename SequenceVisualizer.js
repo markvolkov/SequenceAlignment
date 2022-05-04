@@ -115,7 +115,7 @@ function editDistance(X, Y, gapCost) {
                 path[i + 1][j + 1] = { y: i, x: j, dir: 0 };
                 operations[i + 1][j + 1] = "Swap";
                 if (swapPath == gapPathA || swapPath == gapPathB) {
-                  operations[i + 1][j + 1] += " | Gap";
+//                   operations[i + 1][j + 1] += " | Gap"; unneeded
                 }
             } else if (A[i + 1][j + 1] == gapPathA) {
                 path[i + 1][j + 1] = { y: i, x: j + 1, dir: 1 };
@@ -138,8 +138,8 @@ function getArrowFromDir(dir) {
 
 function getColor(depth, maxDepth) {
     let r = 0;
-    let g = 255 * (depth / maxDepth);
-    let b = 0;
+    let g = 255 * (depth / maxDepth);//255 - (255 * (depth / maxDepth));
+    let b = 0
     return [r, g, b];
 }
 
@@ -190,7 +190,7 @@ function setShortestPathParents(arr, path, operations, sheet) {
         const b = color[2];
         let currentCell = sheet.getRange(arr.length - currentPath.i, currentPath.j + 2, 1, 1);
         currentCell.setBackgroundRGB(r, g, b);
-        if (isColorSimilar(color, [0, 0, 0], 20)) {
+        if (isColorSimilar(color, [0, 0, 0], 25)) {
             currentCell.setFontColor("white");
         }
     }
